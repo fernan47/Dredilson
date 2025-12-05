@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Tags Essenciais para SEO -->
     <title>Dr. Edilson Soares - Consultas Online | Médico Generalista | Telemedicina</title>
     <meta name="description" content="Dr. Edilson Soares - Médico generalista com 15 anos de experiência. Consultas online com qualidade, humanizadas e eficientes. Agende sua teleconsulta hoje mesmo.">
     <meta name="keywords" content="médico generalista, teleconsulta, consulta online, telemedicina, médico online, dr edilson soares, saúde em casa">
     
-    <!-- Open Graph para Redes Sociais -->
     <meta property="og:title" content="Dr. Edilson Soares - Consultas Online | Médico Generalista">
     <meta property="og:description" content="Consultas online com médico generalista experiente. Atendimento humanizado via vídeo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dredilsonsoares.com.br">
     <meta property="og:image" content="https://www.dredilsonsoares.com/images/og-image.jpg">
     
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Edilson Soares - Consultas Online">
     <meta name="twitter:description" content="Médico generalista experiente oferecendo teleconsultas de qualidade.">
     
-    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -65,25 +61,19 @@
     }
     </script>
     
-    <!-- Robots Meta -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.drcarlossilva.com">
     
-    <!-- Ícones -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <!-- Fontes Modernas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Animações CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
@@ -238,7 +228,9 @@
             box-shadow: var(--shadow-lg);
         }
         
-        /* Header */
+        /* ========================================= */
+        /* HEADER E NAVEGAÇÃO - CÓDIGO ATUALIZADO    */
+        /* ========================================= */
         header {
             position: fixed;
             top: 0;
@@ -256,13 +248,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
+            gap: 20px;
         }
         
+        /* 1. Logo na Esquerda (Flex 1) */
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
             text-decoration: none;
+            flex: 1; /* Ocupa espaço na esquerda */
         }
         
         .logo-icon {
@@ -275,6 +270,7 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
         
         .logo-text {
@@ -288,17 +284,21 @@
             font-size: 1.5rem;
             color: var(--primary);
             line-height: 1.2;
+            white-space: nowrap;
         }
         
         .logo-tagline {
             font-size: 0.9rem;
             color: var(--gray);
+            white-space: nowrap;
         }
         
-        /* MENU DESKTOP - CORRIGIDO */
+        /* 2. Menu no Centro (Flex 2) */
         .desktop-nav {
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex: 2; /* Dá prioridade de espaço para centralizar */
         }
         
         .desktop-nav ul {
@@ -316,6 +316,7 @@
             font-size: 1.1rem;
             transition: var(--transition);
             position: relative;
+            white-space: nowrap;
         }
         
         .desktop-nav a:hover {
@@ -335,6 +336,19 @@
         
         .desktop-nav a:hover:after {
             width: 100%;
+        }
+
+        /* 3. Botão CTA na Direita (Flex 1) */
+        .header-cta {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1; /* Equilibra com o logo */
+        }
+
+        .header-cta .btn {
+             padding: 12px 30px;
+             font-size: 1rem;
+             white-space: nowrap;
         }
         
         /* Botão Menu Mobile */
@@ -1058,15 +1072,26 @@
             }
         }
         
+        /* AJUSTES MOBILE CORRIGIDOS */
         @media (max-width: 768px) {
-            /* Esconder menu desktop em mobile */
-            .desktop-nav {
+            /* Esconder menu desktop E O BOTÃO CTA em mobile */
+            .desktop-nav,
+            .header-cta {
                 display: none;
             }
             
             /* Mostrar botão menu mobile */
             .mobile-menu-btn {
                 display: block;
+            }
+
+            /* Reseta o flex do logo para não esmagar o botão mobile */
+            .logo {
+                flex: 0 1 auto;
+                max-width: 80%;
+            }
+            .logo-text {
+                 white-space: normal;
             }
             
             .hero-stats {
@@ -1162,7 +1187,6 @@
     </style>
 </head>
 <body>
-    <!-- Schema Breadcrumb (para SEO) -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <div class="container">
             <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1182,7 +1206,6 @@
         </div>
     </nav>
 
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="#home" class="logo">
@@ -1195,7 +1218,6 @@
                 </div>
             </a>
             
-            <!-- Menu Desktop (visível apenas em telas grandes) -->
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home">Início</a></li>
@@ -1203,17 +1225,18 @@
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#steps">Como Funciona</a></li>
                     <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#booking" class="btn btn-primary">Agendar Consulta</a></li>
                 </ul>
             </nav>
+
+            <div class="header-cta">
+                <a href="#booking" class="btn btn-primary">Agendar Consulta</a>
+            </div>
             
-            <!-- Botão Menu Mobile -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
         
-        <!-- Menu Mobile (visível apenas em telas pequenas) -->
         <nav class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="#home">Início</a></li>
@@ -1226,7 +1249,6 @@
         </nav>
     </header>
 
-    <!-- Botão Flutuante WhatsApp -->
     <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20teleconsulta%20com%20o%20Dr.%20Carlos%20Silva" 
        class="whatsapp-float"
        target="_blank"
@@ -1234,7 +1256,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
@@ -1275,7 +1296,6 @@
         </div>
     </section>
 
-    <!-- Serviços -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
@@ -1335,7 +1355,6 @@
         </div>
     </section>
 
-    <!-- Sobre -->
     <section class="about" id="about">
         <div class="container about-container">
             <div class="about-image">
@@ -1403,7 +1422,6 @@
         </div>
     </section>
 
-    <!-- Como funciona -->
     <section class="steps" id="steps">
         <div class="container">
             <div class="section-header">
@@ -1439,7 +1457,6 @@
         </div>
     </section>
 
-    <!-- Depoimentos -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -1449,17 +1466,14 @@
             
             <div class="testimonials-slider">
                 <div class="testimonials-track" id="testimonialsTrack">
-                    <!-- Depoimentos serão inseridos via JavaScript -->
-                </div>
+                    </div>
                 
                 <div class="slider-nav" id="sliderNav">
-                    <!-- Navegação será inserida via JavaScript -->
-                </div>
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Pronto para cuidar da sua saúde?</h2>
@@ -1476,11 +1490,9 @@
         </div>
     </section>
 
-    <!-- Formulário de Agendamento -->
     <section class="booking" id="booking">
         <div class="container">
             <div class="booking-form-container">
-                <!-- Mensagens de Status -->
                 <div class="form-success" id="successMessage">
                     <h3 style="color: white; margin-bottom: 15px;">✅ Agendamento Solicitado com Sucesso!</h3>
                     <p style="margin-bottom: 10px;">Um email de confirmação foi enviado para <strong id="userEmail"></strong>.</p>
@@ -1579,7 +1591,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1643,7 +1654,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 Dr. Edilson Soares - Médico Família e Comunidade & Teleconsultas. Todos os direitos reservados. CRM-PR 53.784</p>
+                <p>© 2025 Dr. Edilson Soares - Médico Família e Comunidade & Teleconsultas. Todos os direitos reservados. CRM-PR 53.784</p>
                 <p style="margin-top: 10px;"><a href="#" onclick="showPrivacyPolicy()" style="color: #b0b0b0;">Política de Privacidade</a> | <a href="#" onclick="showTerms()" style="color: #b0b0b0;">Termos de Uso</a></p>
             </div>
         </div>
@@ -1780,18 +1791,18 @@
                 // Criar card de depoimento
                 const testimonialCard = document.createElement('div');
                 testimonialCard.className = 'testimonial-card';
-                testimonialCard.innerHTML = `
-                    <div class="testimonial-rating">
-                        ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
-                    </div>
-                    <p class="testimonial-text">"${testimonial.text}"</p>
-                    <div class="testimonial-author">
-                        <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar">
-                        <div>
-                            <h4>${testimonial.author}</h4>
-                            <p>${testimonial.role}</p>
-                        </div>
-                    </div>
+                testimonialCard.innerHTML = `<br>
+                    <div class="testimonial-rating"><br>
+                        ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}<br>
+                    </div><br>
+                    <p class="testimonial-text">"${testimonial.text}"</p><br>
+                    <div class="testimonial-author"><br>
+                        <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar"><br>
+                        <div><br>
+                            <h4>${testimonial.author}</h4><br>
+                            <p>${testimonial.role}</p><br>
+                        </div><br>
+                    </div><br>
                 `;
                 testimonialsTrack.appendChild(testimonialCard);
                 
@@ -1849,27 +1860,7 @@
             // Criar mensagem formatada
             return {
                 subject: `Novo Agendamento: ${formData.name}`,
-                text: `NOVO AGENDAMENTO - SITE DR. EDILSON SOARES
-
-DADOS DO PACIENTE:
-Nome: ${formData.name}
-Email: ${formData.email}
-Telefone: ${formData.phone}
-Data de Nascimento: ${formData.birthdate || 'Não informada'} ${age ? `(${age})` : ''}
-
-AGENDAMENTO SOLICITADO:
-Data: ${formatDate(formData.preferred_date)}
-Horário: ${formData.preferred_time}
-Urgência: ${formData.urgency || 'Não especificada'}
-
-MOTIVO DA CONSULTA:
-${formData.symptoms || 'Não especificado'}
-
-DATA DO PEDIDO: ${new Date().toLocaleString('pt-BR')}
-
----
-Este agendamento foi solicitado através do site oficial.
-Por favor, entre em contato com o paciente para confirmação.`
+                text: `NOVO AGENDAMENTO - SITE DR. EDILSON SOARES<br><br>DADOS DO PACIENTE:<br>Nome: ${formData.name}<br>Email: ${formData.email}<br>Telefone: ${formData.phone}<br>Data de Nascimento: ${formData.birthdate || 'Não informada'} ${age ? `(${age})` : ''}<br><br>AGENDAMENTO SOLICITADO:<br>Data: ${formatDate(formData.preferred_date)}<br>Horário: ${formData.preferred_time}<br>Urgência: ${formData.urgency || 'Não especificada'}<br><br>MOTIVO DA CONSULTA:<br>${formData.symptoms || 'Não especificado'}<br><br>DATA DO PEDIDO: ${new Date().toLocaleString('pt-BR')}<br><br>---<br>Este agendamento foi solicitado através do site oficial.<br>Por favor, entre em contato com o paciente para confirmação.`
             };
         }
         
@@ -2112,35 +2103,12 @@ Por favor, entre em contato com o paciente para confirmação.`
         // FUNÇÕES AUXILIARES
         // ============================================
         function showPrivacyPolicy() {
-            alert(`POLÍTICA DE PRIVACIDADE
-
-1. Coleta de Dados: Coletamos apenas os dados necessários para o agendamento da consulta.
-
-2. Uso dos Dados: Seus dados serão usados exclusivamente para:
-   - Processar seu agendamento
-   - Entrar em contato para confirmação
-   - Enviar informações sobre sua consulta
-
-3. Segurança: Seus dados são protegidos com criptografia e nunca serão compartilhados com terceiros.
-
-4. Seus Direitos: Você pode solicitar a exclusão de seus dados a qualquer momento.
-
-Para mais informações, entre em contato: contato@drcarlossilva.com`);
+            alert(`POLÍTICA DE PRIVACIDADE<br><br>1. Coleta de Dados: Coletamos apenas os dados necessários para o agendamento da consulta.<br><br>2. Uso dos Dados: Seus dados serão usados exclusivamente para:<br>   - Processar seu agendamento<br>   - Entrar em contato para confirmação<br>   - Enviar informações sobre sua consulta<br><br>3. Segurança: Seus dados são protegidos com criptografia e nunca serão compartilhados com terceiros.<br><br>4. Seus Direitos: Você pode solicitar a exclusão de seus dados a qualquer momento.<br><br>Para mais informações, entre em contato: contato@drcarlossilva.com`);
             return false;
         }
         
         function showTerms() {
-            alert(`TERMOS DE USO
-
-1. Agendamento: O agendamento está sujeito à disponibilidade de horários.
-
-2. Confirmação: O agendamento só será considerado confirmado após contato da nossa equipe.
-
-3. Cancelamento: Para cancelar ou reagendar, entre em contato com 24h de antecedência.
-
-4. Teleconsulta: É necessário ter conexão com internet e dispositivo com câmera.
-
-5. Pagamento: Informações sobre valores serão fornecidas na confirmação do agendamento.`);
+            alert(`TERMOS DE USO<br><br>1. Agendamento: O agendamento está sujeito à disponibilidade de horários.<br><br>2. Confirmação: O agendamento só será considerado confirmado após contato da nossa equipe.<br><br>3. Cancelamento: Para cancelar ou reagendar, entre em contato com 24h de antecedência.<br><br>4. Teleconsulta: É necessário ter conexão com internet e dispositivo com câmera.<br><br>5. Pagamento: Informações sobre valores serão fornecidas na confirmação do agendamento.`);
             return false;
         }
         
