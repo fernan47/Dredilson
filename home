@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Meta Tags Essenciais para SEO -->
-    <title>Dr. Carlos Silva - Consultas Online | Médico Generalista | Telemedicina</title>
-    <meta name="description" content="Dr. Carlos Silva - Médico generalista com 15 anos de experiência. Consultas online com qualidade, humanizadas e eficientes. Agende sua teleconsulta hoje mesmo.">
-    <meta name="keywords" content="médico generalista, teleconsulta, consulta online, telemedicina, médico online, dr carlos silva, saúde em casa">
+    <title>Dr. Edilson Soares - Consultas Online | Médico Generalista | Telemedicina</title>
+    <meta name="description" content="Dr. Edilson Soares - Médico generalista com 15 anos de experiência. Consultas online com qualidade, humanizadas e eficientes. Agende sua teleconsulta hoje mesmo.">
+    <meta name="keywords" content="médico generalista, teleconsulta, consulta online, telemedicina, médico online, dr edilson soares, saúde em casa">
     
     <!-- Open Graph para Redes Sociais -->
-    <meta property="og:title" content="Dr. Carlos Silva - Consultas Online | Médico Generalista">
+    <meta property="og:title" content="Dr. Edilson Soares - Consultas Online | Médico Generalista">
     <meta property="og:description" content="Consultas online com médico generalista experiente. Atendimento humanizado via vídeo.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.drcarlossilva.com">
-    <meta property="og:image" content="https://www.drcarlossilva.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.dredilsonsoares.com.br">
+    <meta property="og:image" content="https://www.dredilsonsoares.com/images/og-image.jpg">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dr. Carlos Silva - Consultas Online">
+    <meta name="twitter:title" content="Dr. Edilson Soares - Consultas Online">
     <meta name="twitter:description" content="Médico generalista experiente oferecendo teleconsultas de qualidade.">
     
     <!-- Schema.org Structured Data -->
@@ -26,9 +26,9 @@
     {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
-        "name": "Dr. Carlos Silva - Medicina Generalista",
+        "name": "Dr. Edilson Soares - Medicina Generalista",
         "description": "Consultas médicas online com médico generalista experiente",
-        "url": "https://www.drcarlossilva.com",
+        "url": "https://www.dredilsonsoares.com.br",
         "telephone": "+55-11-99999-9999",
         "email": "contato@drcarlossilva.com",
         "address": {
@@ -39,7 +39,7 @@
         },
         "priceRange": "$$",
         "medicalSpecialty": "General Medicine",
-        "image": "https://www.drcarlossilva.com/images/doctor-profile.jpg",
+        "image": "https://www.dredilsonsoares.com.br",
         "sameAs": [
             "https://www.instagram.com/drcarlossilva",
             "https://www.facebook.com/drcarlossilva"
@@ -629,7 +629,7 @@
         
         /* Como funciona */
         .steps {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, #42d1e8 0%, #517df2 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -1190,8 +1190,8 @@
                     <i class="fas fa-user-md"></i>
                 </div>
                 <div class="logo-text">
-                    <div class="logo-name">Dr. Carlos Silva</div>
-                    <div class="logo-tagline">Medicina Generalista & Teleconsultas</div>
+                    <div class="logo-name">Dr. Edilson Soares</div>
+                    <div class="logo-tagline">Médico de Família e Comunidade & Teleconsultas</div>
                 </div>
             </a>
             
@@ -1240,20 +1240,20 @@
             <div class="hero-content">
                 <span class="hero-badge">Teleconsultas Disponíveis</span>
                 <h1>Cuidado médico especializado no conforto do seu lar</h1>
-                <p>Dr. Carlos Silva - Médico generalista com 15 anos de experiência oferecendo consultas online de qualidade. Atendimento humanizado, diagnóstico preciso e tratamento eficaz através de telemedicina.</p>
+                <p>Dr. Edilson Soares dedica-se à Medicina de Família e Comunidade, oferecendo uma abordagem integral à saúde. Com foco no atendimento humanizado, garantimos diagnóstico preciso e tratamento eficaz através da praticidade da telemedicina. Cuidado médico de excelência, no conforto do seu lar</p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Anos de Experiência</div>
+                        <div class="stat-number">Todas as Idades</div>
+                        <div class="stat-label">Capacitado para atender de crianças a idosos</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">5.000+</div>
-                        <div class="stat-label">Pacientes Atendidos</div>
+                        <div class="stat-number">8+ Anos</div>
+                        <div class="stat-label">De dedicação exclusiva à formação médica</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfação dos Pacientes</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Atenção individualizada</div>
                     </div>
                 </div>
                 
@@ -1268,9 +1268,9 @@
             </div>
             
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Dr. Carlos Silva realizando teleconsulta via videoconferência" 
-                     title="Teleconsulta com Dr. Carlos Silva">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipNU_soVNqpshQS9Oc7MyMxwJ6o_VDhMr8HmlS7x=s680-w680-h510-rw" 
+                     alt="Dr. Edilson Soares realizando teleconsulta via videoconferência" 
+                     title="Teleconsulta com Dr. Edilson Soares">
             </div>
         </div>
     </section>
@@ -1339,20 +1339,20 @@
     <section class="about" id="about">
         <div class="container about-container">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Dr. Carlos Silva - Médico generalista" 
-                     title="Dr. Carlos Silva - 15 anos de experiência">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipNU_soVNqpshQS9Oc7MyMxwJ6o_VDhMr8HmlS7x=s680-w680-h510-rw" 
+                     alt="Dr. Edilson Soares - Médico Família e Comunidade" 
+                     title="Dr. Edilson Soares">
                 <div class="experience-badge">
-                    <div class="experience-years">15+</div>
-                    <div class="experience-text">Anos de Experiência</div>
+                    <div class="experience-years">R$ 130</div>
+                    <div class="experience-text"></div>
                 </div>
             </div>
             
             <div class="about-content">
-                <h2>Conheça o Dr. Carlos Silva</h2>
-                <p>Médico generalista formado pela Universidade Federal de São Paulo (UNIFESP) com especialização em Medicina de Família e Comunidade. Com mais de 15 anos de experiência clínica, atendo pacientes com foco na prevenção, diagnóstico precoce e tratamento humanizado.</p>
+                <h2>Conheça o Dr. Edilson Soares da Silva</h2>
+                <p>Médico especializando em Medicina de Família e Comunidade formado pela FAMEPP - UNOESTE em Presidente Prudente - SP.</p>
                 
-                <p>Acredito que a telemedicina é o futuro da saúde, proporcionando acesso a cuidados médicos de qualidade para todos, independentemente da localização geográfica.</p>
+                <p>A medicina preventiva é essencial para promover a saúde e o bem-estar da população, reduzindo a incidência de doenças e melhorando a qualidade de vida. Ao focar na prevenção, em vez de apenas tratar doenças após seu surgimento, é possível identificar e mitigar fatores de risco antes que se tornem problemas graves. Isso inclui ações como Consultas médicas de rotina, exames regulares de rotina “check-ups”, promoção de hábitos saudáveis e mudança do estilo de vida.</p>
                 
                 <div class="credentials-grid">
                     <div class="credential-item">
@@ -1361,7 +1361,7 @@
                         </div>
                         <div>
                             <h4>Formação</h4>
-                            <p>UNIFESP - Medicina</p>
+                            <p>Medicina UNOESTE - SP</p>
                         </div>
                     </div>
                     
@@ -1381,7 +1381,7 @@
                         </div>
                         <div>
                             <h4>Registro Profissional</h4>
-                            <p>CRM-SP 123.456</p>
+                            <p>CRM-PR 53.784</p>
                         </div>
                     </div>
                     
@@ -1589,23 +1589,23 @@
                             <i class="fas fa-user-md"></i>
                         </div>
                         <div class="logo-text">
-                            <div class="logo-name" style="color: white;">Dr. Carlos Silva</div>
+                            <div class="logo-name" style="color: white;">Dr. Edilson Soares</div>
                             <div class="logo-tagline" style="color: #b0b0b0;">Medicina Generalista</div>
                         </div>
                     </div>
                     <p style="color: #b0b0b0;">Oferecendo cuidados médicos de qualidade através de teleconsultas. Atendimento humanizado e personalizado para sua saúde.</p>
                     
                     <div class="social-links">
-                        <a href="https://www.instagram.com/drcarlossilva" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/dr.edilsonsoares/" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/drcarlossilva" class="social-link" aria-label="Facebook">
+                        <a href="https://www.facebook.com/dredilsonsoares" class="social-link" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="mailto:contato@drcarlossilva.com" class="social-link" aria-label="Email">
+                        <a href="mailto:contato@dredilsonsoares.com" class="social-link" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/drcarlossilva" class="social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/dredilsonsoares" class="social-link" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -1626,7 +1626,7 @@
                     <h3>Contato</h3>
                     <ul class="footer-links">
                         <li><a href="tel:+5511999999999"><i class="fas fa-phone-alt"></i> (11) 99999-9999</a></li>
-                        <li><a href="mailto:contato@drcarlossilva.com"><i class="fas fa-envelope"></i> contato@drcarlossilva.com</a></li>
+                        <li><a href="mailto:contato@dredilsonsoares.com"><i class="fas fa-envelope"></i> contato@drcarlossilva.com</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> São Paulo - SP</a></li>
                         <li><a href="#booking"><i class="fas fa-calendar-alt"></i> Agendar Online</a></li>
                     </ul>
@@ -1644,7 +1644,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Dr. Carlos Silva - Medicina Generalista & Teleconsultas. Todos os direitos reservados. CRM-SP 123.456</p>
+                <p>&copy; 2025 Dr. Edilson Soares - Medicina Generalista & Teleconsultas. Todos os direitos reservados. CRM-SP 123.456</p>
                 <p style="margin-top: 10px;"><a href="#" onclick="showPrivacyPolicy()" style="color: #b0b0b0;">Política de Privacidade</a> | <a href="#" onclick="showTerms()" style="color: #b0b0b0;">Termos de Uso</a></p>
             </div>
         </div>
@@ -1850,7 +1850,7 @@
             // Criar mensagem formatada
             return {
                 subject: `Novo Agendamento: ${formData.name}`,
-                text: `NOVO AGENDAMENTO - SITE DR. CARLOS SILVA
+                text: `NOVO AGENDAMENTO - SITE DR. EDILSON SOARES
 
 DADOS DO PACIENTE:
 Nome: ${formData.name}
