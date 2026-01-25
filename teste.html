@@ -3,75 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa Retrospectiva - 6 Anos</title>
+    <title>6 Anos Juntos ❤️</title>
+    
+    <meta property="og:title" content="Nossa História - 6 Anos">
+    <meta property="og:description" content="Uma pequena surpresa sobre o nosso caminho desde 2020.">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    
     <style>
-        body { background-color: #000; color: white; font-family: 'sans-serif'; overflow-x: hidden; }
-        .heart { position: absolute; color: #ff2e63; opacity: 0.5; z-index: -1; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { background-color: #050505; color: white; scroll-behavior: smooth; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle var(--duration) infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+        #main-content { display: none; }
+        .btn-grad { background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%); transition: 0.5s; background-size: 200% auto; cursor: pointer; }
+        .btn-grad:hover { background-position: right center; }
+        #youtube-player { position: absolute; top: -9999px; left: -9999px; }
     </style>
 </head>
-<body class="bg-gradient-to-b from-purple-900 via-black to-indigo-900 min-h-screen flex items-center justify-center p-4">
+<body>
 
-    <div class="max-w-md w-full bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20 animate__animated animate__fadeIn">
-        
-        <header class="text-center mb-10">
-            <span class="bg-pink-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Rewind 2020-2026</span>
-            <h1 class="text-4xl font-extrabold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-300">
-                6 Anos Juntos
-            </h1>
-            <p class="text-gray-300 mt-2">Uma história escrita a dois.</p>
-        </header>
+    <div id="youtube-player"></div>
 
-        <div class="grid grid-cols-2 gap-4 mb-10">
-            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-1s">
-                <p class="text-3xl font-bold text-pink-400">72</p>
-                <p class="text-xs uppercase text-gray-400">Meses</p>
-            </div>
-            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-1s">
-                <p class="text-3xl font-bold text-purple-400">2.192</p>
-                <p class="text-xs uppercase text-gray-400">Dias</p>
-            </div>
-            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-2s">
-                <p class="text-2xl font-bold text-indigo-400">52.608</p>
-                <p class="text-xs uppercase text-gray-400">Horas</p>
-            </div>
-            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-2s">
-                <p class="text-xl font-bold text-blue-400">3.156.480</p>
-                <p class="text-xs uppercase text-gray-400">Minutos</p>
-            </div>
+    <div id="stars-container" class="fixed inset-0 -z-10"></div>
+
+    <div id="overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black">
+        <div class="text-center p-6 animate__animated animate__fadeIn">
+            <div class="text-6xl mb-8 animate__animated animate__pulse animate__infinite">❤️</div>
+            <h1 class="text-3xl font-light mb-8 italic text-gray-300">Nossa retrospectiva de 6 anos.</h1>
+            <button onclick="startExperience()" class="btn-grad px-10 py-4 text-white rounded-full font-bold shadow-lg transform active:scale-95 transition-all">
+                ABRIR NOSSA HISTÓRIA
+            </button>
+            <p class="text-[10px] text-gray-500 mt-6 uppercase tracking-[0.3em]">Certifique-se de que o som está ligado</p>
         </div>
-
-        <div class="space-y-6 text-center">
-            <blockquote class="italic text-lg text-gray-200 animate__animated animate__fadeInUp animate__delay-3s">
-                "Desde 25 de janeiro de 2020, cada segundo valeu a pena. Feliz 6 anos, meu amor!"
-            </blockquote>
-            
-            <div class="pt-4 animate__animated animate__heartBeat animate__infinite animate__slow">
-                <span class="text-5xl">❤️</span>
-            </div>
-        </div>
-
     </div>
 
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            document.body.appendChild(heart);
-            
-            const animation = heart.animate([
-                { transform: 'translateY(100vh)', opacity: 1 },
-                { transform: 'translateY(-10vh)', opacity: 0 }
-            ], { duration: 3000 });
+    <main id="main-content">
+        <section class="h-screen flex items-center justify-center p-6 text-center">
+            <div class="max-w-2xl">
+                <h2 class="text-3xl md:text-5xl font-light italic leading-relaxed text-gray-300 animate__animated animate__fadeInUp">
+                    "Dizem que alguns encontros <span class="text-white font-semibold">mudam a nossa vida</span> para sempre..."
+                </h2>
+                <div class="mt-16 opacity-40 text-[10px] tracking-[0.5em] animate__animated animate__bounce animate__infinite">
+                    DESLIZE PARA BAIXO
+                </div>
+            </div>
+        </section>
 
-            animation.onfinish = () => heart.remove();
+        <section class="h-screen flex items-center justify-center p-6 text-center">
+            <div class="max-w-2xl">
+                <p class="text-pink-500 uppercase tracking-[0.4em] text-xs mb-6">Tudo começou em</p>
+                <h2 class="text-6xl md:text-8xl font-black text-white mb-6">25.01.2020</h2>
+                <p class="text-gray-400 italic text-xl">O dia em que o "eu" virou "nós".</p>
+            </div>
+        </section>
+
+        <section class="min-h-screen flex flex-col items-center justify-center p-6 space-y-20">
+            <div class="glass p-10 rounded-[2.5rem] w-full max-w-md text-center">
+                <div class="text-6xl mb-6">🌑</div>
+                <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-pink-400 mb-4">A Lua de 25/01/2020</h3>
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    Naquela noite, o céu nos deu uma <b>Lua Nova</b>. 
+                    Era o universo em silêncio, deixando que apenas o nosso encontro brilhasse.
+                </p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] w-full max-w-md text-center">
+                <div class="text-6xl mb-6">☀️</div>
+                <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-yellow-500 mb-4">Viagem Orbital</h3>
+                <p class="text-gray-300 text-lg">
+                    Nesses 6 anos, a Terra completou
+                </p>
+                <div class="text-7xl font-black my-6 bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 to-orange-500 italic">6 VOLTAS</div>
+                <p class="text-gray-400 italic font-light tracking-wide">completas ao redor do Sol com a gente.</p>
+            </div>
+        </section>
+
+        <section class="min-h-screen flex items-center justify-center p-6">
+            <div class="glass p-10 rounded-[3rem] w-full max-w-lg shadow-2xl relative overflow-hidden">
+                <header class="text-center mb-12">
+                    <span class="text-[9px] font-bold bg-white/10 text-pink-300 px-4 py-1 rounded-full border border-white/10 uppercase tracking-widest">Rewind 2020 - 2026</span>
+                    <h1 class="text-4xl font-black mt-8 tracking-tight">Nosso resumo.</h1>
+                </header>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white/5 p-6 rounded-3xl border border-white/5 text-center">
+                        <p class="text-4xl font-black text-pink-500">72</p>
+                        <p class="text-[10px] uppercase text-gray-500 mt-2 font-bold tracking-widest">Meses</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-3xl border border-white/5 text-center">
+                        <p class="text-4xl font-black text-purple-500">2.192</p>
+                        <p class="text-[10px] uppercase text-gray-500 mt-2 font-bold tracking-widest">Dias</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-3xl border border-white/5 text-center">
+                        <p class="text-2xl font-black text-indigo-400">52.608</p>
+                        <p class="text-[10px] uppercase text-gray-500 mt-2 font-bold tracking-widest">Horas</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-3xl border border-white/5 text-center">
+                        <p class="text-xl font-black text-blue-400">3.156.480</p>
+                        <p class="text-[10px] uppercase text-gray-500 mt-2 font-bold tracking-widest">Minutos</p>
+                    </div>
+                </div>
+
+                <footer class="mt-16 text-center">
+                    <p class="text-xl italic text-gray-300 font-light">
+                        "Home is wherever I'm with you."
+                    </p>
+                    <div class="mt-10 text-5xl animate__animated animate__heartBeat animate__infinite">❤️</div>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        let player;
+        const videoId = 'rjFaenf1T-Y'; // ID do vídeo fornecido
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': videoId,
+                    'start': 4 // Começa nos 4 segundos como no seu link
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
         }
-        setInterval(createHeart, 300);
+
+        function onPlayerReady(event) {
+            // Player está pronto
+        }
+
+        function startExperience() {
+            if (player && player.playVideo) {
+                player.playVideo();
+            }
+            
+            const overlay = document.getElementById('overlay');
+            overlay.classList.add('animate__animated', 'animate__fadeOut');
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                window.scrollTo(0, 0);
+            }, 600);
+        }
+
+        // Criar estrelas de fundo
+        const container = document.getElementById('stars-container');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 1 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            container.appendChild(star);
+        }
     </script>
 </body>
 </html>
