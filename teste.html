@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Retrospectiva - 6 Anos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: white; font-family: 'sans-serif'; overflow-x: hidden; }
+        .heart { position: absolute; color: #ff2e63; opacity: 0.5; z-index: -1; }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-purple-900 via-black to-indigo-900 min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/20 animate__animated animate__fadeIn">
+        
+        <header class="text-center mb-10">
+            <span class="bg-pink-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Rewind 2020-2026</span>
+            <h1 class="text-4xl font-extrabold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-300">
+                6 Anos Juntos
+            </h1>
+            <p class="text-gray-300 mt-2">Uma história escrita a dois.</p>
+        </header>
+
+        <div class="grid grid-cols-2 gap-4 mb-10">
+            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-1s">
+                <p class="text-3xl font-bold text-pink-400">72</p>
+                <p class="text-xs uppercase text-gray-400">Meses</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-1s">
+                <p class="text-3xl font-bold text-purple-400">2.192</p>
+                <p class="text-xs uppercase text-gray-400">Dias</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-2s">
+                <p class="text-2xl font-bold text-indigo-400">52.608</p>
+                <p class="text-xs uppercase text-gray-400">Horas</p>
+            </div>
+            <div class="bg-white/5 p-4 rounded-2xl border border-white/10 text-center animate__animated animate__zoomIn animate__delay-2s">
+                <p class="text-xl font-bold text-blue-400">3.156.480</p>
+                <p class="text-xs uppercase text-gray-400">Minutos</p>
+            </div>
+        </div>
+
+        <div class="space-y-6 text-center">
+            <blockquote class="italic text-lg text-gray-200 animate__animated animate__fadeInUp animate__delay-3s">
+                "Desde 25 de janeiro de 2020, cada segundo valeu a pena. Feliz 6 anos, meu amor!"
+            </blockquote>
+            
+            <div class="pt-4 animate__animated animate__heartBeat animate__infinite animate__slow">
+                <span class="text-5xl">❤️</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.body.appendChild(heart);
+            
+            const animation = heart.animate([
+                { transform: 'translateY(100vh)', opacity: 1 },
+                { transform: 'translateY(-10vh)', opacity: 0 }
+            ], { duration: 3000 });
+
+            animation.onfinish = () => heart.remove();
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
