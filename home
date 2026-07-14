@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Hub - Encaminhamentos Ocupacionais</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #3b82f6;
+            --bg-page: #e2e8f0;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --border: #cbd5e1;
+            --info-bg: #eff6ff;
+            --info-border: #bfdbfe;
+            --info-text: #1e3a8a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Painel de Controle */
+        .control-panel {
+            width: 450px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--bg-page);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.2s;
+            background: #f8fafc;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: var(--secondary);
+            background: #ffffff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Caixa de Decisão Clínica */
+        .clinical-guide {
+            background: var(--info-bg);
+            border: 1px solid var(--info-border);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--info-text);
+            line-height: 1.4;
+        }
+
+        .clinical-guide h4 {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .print-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .print-btn:hover {
+            background: #0f172aee;
+        }
+
+        /* Área do Documento */
+        .preview-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            overflow-y: auto;
+            background: #cbd5e1;
+        }
+
+        .a4-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 25mm; 
+            display: flex;
+            flex-direction: column;
+            color: #000;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            font-size: 12pt;
+        }
+
+        .doc-header {
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: Arial, sans-serif;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .doc-header h2 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .doc-header p {
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .doc-recipient {
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 13pt;
+        }
+
+        .doc-content {
+            text-align: justify;
+            text-indent: 2cm;
+            flex-grow: 1;
+        }
+
+        .doc-date {
+            text-align: right;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .doc-signature {
+            text-align: center;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .signature-line {
+            width: 300px;
+            border-top: 1px solid #000;
+            margin-bottom: 5px;
+        }
+
+        /* Controle de visibilidade de inputs */
+        .input-group { display: none; }
+        .input-group.active { display: flex; flex-direction: column; gap: 12px; }
+
+        @media print {
+            body { background: white; height: auto; overflow: visible; }
+            .control-panel { display: none !important; }
+            .preview-area { padding: 0; background: white; }
+            .a4-sheet { box-shadow: none; width: 100%; min-height: auto; padding: 0; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="control-panel">
+        <h1 class="panel-title">HUB Clínico - ASO</h1>
+        
+        <!-- Bloco de Identificação -->
+        <div class="form-group">
+            <label>Tipo de Encaminhamento</label>
+            <select id="tipo-encaminhamento" onchange="changeType()">
+                <option value="pa">Hipertensão Arterial (PA Alta)</option>
+                <option value="glicemia">Glicemia Alterada (HGT Alta)</option>
+                <option value="visao_longe">Visão de Longe (Snellen)</option>
+                <option value="visao_perto">Visão de Perto (Jaeger)</option>
+                <option value="ortopedia">Ortopedia / LER-DORT</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Nome do Paciente</label>
+            <input type="text" id="paciente-nome" placeholder="Nome completo" oninput="updateDocument()">
+        </div>
+
+        <div class="form-group">
+            <label>Sexo</label>
+            <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="paciente-sexo" value="M" checked onchange="updateDocument()"> Masculino</label>
+                <label class="radio-option"><input type="radio" name="paciente-sexo" value="F" onchange="updateDocument()"> Feminino</label>
+            </div>
+        </div>
+
+        <!-- Inputs Dinâmicos: PRESSÃO ARTERIAL -->
+        <div id="inputs-pa" class="input-group active">
+            <div class="form-group">
+                <label>Pressão Aferida (mmHg)</label>
+                <input type="text" id="pa-valor" value="150x90" oninput="updateDocument()">
+            </div>
+        </div>
+
+        <!-- Inputs Dinâmicos: GLICEMIA -->
+        <div id="inputs-glicemia" class="input-group">
+            <div class="form-group">
+                <label>Glicemia Capilar (HGT - mg/dL)</label>
+                <input type="text" id="gli-valor" value="160" oninput="updateDocument()">
+            </div>
+            <div class="form-group">
+                <label>Condição da Coleta</label>
+                <select id="gli-jejum" onchange="updateDocument()">
+                    <option value="em jejum">Em Jejum</option>
+                    <option value="pós-prandial / aleatória" selected>Aleatória (Sem jejum)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Inputs Dinâmicos: SNELLEN -->
+        <div id="inputs-visao_longe" class="input-group">
+            <div style="display: flex; gap: 10px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Olho Direito (OD)</label>
+                    <select id="snellen-od" onchange="updateDocument()">
+                        <option value="20/20">20/20</option>
+                        <option value="20/30">20/30</option>
+                        <option value="20/40" selected>20/40</option>
+                        <option value="20/50">20/50</option>
+                        <option value="20/70">20/70</option>
+                        <option value="20/100">20/100</option>
+                        <option value="Pior que 20/200">Pior q 20/200</option>
+                    </select>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Olho Esquerdo (OE)</label>
+                    <select id="snellen-oe" onchange="updateDocument()">
+                        <option value="20/20">20/20</option>
+                        <option value="20/30">20/30</option>
+                        <option value="20/40">20/40</option>
+                        <option value="20/50" selected>20/50</option>
+                        <option value="20/70">20/70</option>
+                        <option value="20/100">20/100</option>
+                        <option value="Pior que 20/200">Pior q 20/200</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inputs Dinâmicos: JAEGER -->
+        <div id="inputs-visao_perto" class="input-group">
+            <div class="form-group">
+                <label>Classificação Jaeger</label>
+                <select id="jaeger-valor" onchange="updateDocument()">
+                    <option value="J2">J2</option>
+                    <option value="J3">J3 (Início de Presbiopia)</option>
+                    <option value="J4" selected>J4 (Deficit Moderado)</option>
+                    <option value="J5">J5</option>
+                    <option value="J6">J6 (Deficit Grave)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Inputs Dinâmicos: ORTOPEDIA -->
+        <div id="inputs-ortopedia" class="input-group">
+            <div class="form-group">
+                <label>Sintoma / Teste Positivo</label>
+                <input type="text" id="orto-queixa" value="dor lombar irradiada e Teste de Laségue positivo à direita" oninput="updateDocument()">
+            </div>
+        </div>
+
+        <!-- CAIXA DE DECISÃO CLÍNICA (O Guia) -->
+        <div class="clinical-guide" id="clinical-guide">
+            <!-- Preenchido via JS -->
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Imprimir Encaminhamento</button>
+    </div>
+
+    <!-- ÁREA DO DOCUMENTO -->
+    <div class="preview-area">
+        <div class="a4-sheet" id="print-sheet">
+            <div class="doc-header">
+                <h2>Encaminhamento Médico</h2>
+                <p>Clínica Ocupacional e Medicina Preventiva</p>
+            </div>
+
+            <div class="doc-recipient" id="doc-to">Ao Médico da Estratégia Saúde da Família (ESF)</div>
+
+            <div class="doc-content" id="doc-text"></div>
+
+            <div class="doc-date" id="doc-date-field"></div>
+
+            <div class="doc-signature">
+                <div class="signature-line"></div>
+                <strong>Dr. Fernando Sanches</strong>
+                <span>Médico Examinador</span>
+                <span>CRM-PR: ___________</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuração Automática de Data (Sempre mostrará a data real de quando você abrir o sistema)
+        const dataAtual = new Date();
+        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        document.getElementById('doc-date-field').innerText = `Maringá - PR, ${dataAtual.getDate()} de ${meses[dataAtual.getMonth()]} de ${dataAtual.getFullYear()}.`;
+
+        // Base de Dados de Guias Clínicos
+        const guias = {
+            pa: `<h4>🩺 Guia de Conduta: Pressão Arterial</h4>
+                 <strong>Até 139x89:</strong> Normal.<br>
+                 <strong>140x90 a 179x119:</strong> Encaminhar para ESF.<br>
+                 <strong>≥ 180x120:</strong> RISCO GRAVE! Não encaminhe para ESF. Encaminhe direto para UPA/PS e retenha o ASO se for risco (altura/trânsito).`,
+            
+            glicemia: `<h4>🩸 Guia de Conduta: Glicemia</h4>
+                       <strong>Jejum ≥ 126 ou Aleatória ≥ 200:</strong> Encaminhar ESF.<br>
+                       <strong>≥ 300:</strong> Reter ASO para trabalho em Altura/Máquinas.<br>
+                       <strong>≥ 400 ou "HI":</strong> Urgência Médica. Encaminhar para UPA.`,
+            
+            visao_longe: `<h4>👁️ Guia de Conduta: Visão (Snellen)</h4>
+                          <strong>Até 20/30:</strong> Aceitável para a maioria dos cargos.<br>
+                          <strong>Pior que 20/40 no melhor olho:</strong> Encaminhar ao Oftalmologista. Reter ASO para Motoristas Profissionais e NR-35.`,
+            
+            visao_perto: `<h4>👓 Guia de Conduta: Visão (Jaeger)</h4>
+                          <strong>J1 e J2:</strong> Normal.<br>
+                          <strong>J3 a J6:</strong> Encaminhar (Presbiopia). Geralmente Apto condicionado ao uso de óculos para funções administrativas/leitura.`,
+            
+            ortopedia: `<h4>🦴 Guia de Conduta: Ortopedia</h4>
+                        Se o cargo envolver carregamento de peso ou repetição e o teste físico (Laségue, Phalen, Tinel) for francamente positivo, avalie <strong>reter o ASO</strong> e encaminhar ao especialista.`
+        };
+
+        function changeType() {
+            const tipo = document.getElementById('tipo-encaminhamento').value;
+            
+            // Oculta todos os inputs e mostra o selecionado
+            document.querySelectorAll('.input-group').forEach(el => el.classList.remove('active'));
+            document.getElementById(`inputs-${tipo}`).classList.add('active');
+            
+            // Atualiza o Guia Clínico
+            document.getElementById('clinical-guide').innerHTML = guias[tipo];
+            
+            // Atualiza Destinatário
+            let destinatario = "Ao Médico da Estratégia Saúde da Família (ESF)";
+            if(tipo.includes('visao')) destinatario = "Ao Médico Oftalmologista";
+            if(tipo === 'ortopedia') destinatario = "Ao Médico Ortopedista / Clínico Geral (ESF)";
+            document.getElementById('doc-to').innerText = destinatario;
+
+            updateDocument();
+        }
+
+        function updateDocument() {
+            const tipo = document.getElementById('tipo-encaminhamento').value;
+            const nomeInput = document.getElementById('paciente-nome').value.trim();
+            const nome = nomeInput ? nomeInput.toUpperCase() : "______________________________";
+            const sexo = document.querySelector('input[name="paciente-sexo"]:checked').value;
+            
+            // Flexão de gênero
+            const art = (sexo === 'M') ? 'o' : 'a';
+            const Art = (sexo === 'M') ? 'O' : 'A';
+            const adj_encaminhado = (sexo === 'M') ? 'encaminhado' : 'encaminhada';
+            const adj_assintomatico = (sexo === 'M') ? 'assintomático' : 'assintomática';
+
+            let texto = "";
+
+            if (tipo === 'pa') {
+                const valor = document.getElementById('pa-valor').value;
+                // Texto de PA alterado com a exclusão da frase estritamente ocupacional
+                texto = `Encaminho ${art} paciente <strong>${nome}</strong> a esta Unidade de Saúde para propedêutica diagnóstica, monitoramento crônico e manejo de Níveis Pressóricos Elevados (CID: I10).<br><br>Durante a realização de exame médico ocupacional na data de hoje, ${art} paciente apresentou, em repouso, aferição de <strong>${valor} mmHg</strong>. Encontra-se clinicamente estável e ${adj_assintomatico} no momento do exame, sem critérios clínicos de emergência.`;
+            } 
+            else if (tipo === 'glicemia') {
+                const valor = document.getElementById('gli-valor').value;
+                const condicao = document.getElementById('gli-jejum').value;
+                texto = `Encaminho ${art} paciente <strong>${nome}</strong> a esta Unidade de Saúde para investigação de quadro de Hiperglicemia a esclarecer (Suspeita de Diabetes Mellitus - CID: E11).<br><br>Durante exame médico ocupacional, foi realizada glicemia capilar de triagem com resultado de <strong>${valor} mg/dL</strong> (${condicao}). O paciente encontra-se sem sinais de descompensação metabólica aguda no momento.<br><br>Solicito avaliação clínica, solicitação de exames laboratoriais confirmatórios e conduta terapêutica pertinente pela equipe da ESF.`;
+            }
+            else if (tipo === 'visao_longe') {
+                const od = document.getElementById('snellen-od').value;
+                const oe = document.getElementById('snellen-oe').value;
+                texto = `Encaminho ${art} paciente <strong>${nome}</strong> para avaliação oftalmológica especializada devido a deficit de acuidade visual para longe detectado em triagem ocupacional.<br><br>No teste de Snellen, ${art} paciente apresentou os seguintes resultados sem correção óptica: <strong>OD: ${od} | OE: ${oe}</strong>.<br><br>Considerando que a integridade visual plena é pré-requisito de segurança para a função laborativa pretendida, o paciente encontra-se ${adj_encaminhado} para avaliação de refração e prescrição de lentes corretivas, se aplicável.`;
+            }
+            else if (tipo === 'visao_perto') {
+                const valor = document.getElementById('jaeger-valor').value;
+                texto = `Encaminho ${art} paciente <strong>${nome}</strong> para avaliação oftalmológica devido a indícios de deficit de acuidade visual para perto (Suspeita de Presbiopia / Vício de Refração).<br><br>Na triagem ocupacional (Tabela de Jaeger), apresentou resultado de <strong>${valor}</strong>, o que pode comprometer a ergonomia e o conforto visual em suas atividades.<br><br>Solicito conduta especializada para fornecimento de receituário óptico, garantindo a saúde visual d${art} trabalhador(a).`;
+            }
+            else if (tipo === 'ortopedia') {
+                const queixa = document.getElementById('orto-queixa').value;
+                texto = `Encaminho ${art} paciente <strong>${nome}</strong> para propedêutica e parecer especializado referente a quadro osteomioarticular.<br><br>Durante o exame físico ocupacional, ${art} trabalhador(a) apresentou: <strong>${queixa}</strong>.<br><br>Frente à sintomatologia e para garantir a integridade física d${art} paciente em suas rotinas laborais (que envolvem risco biomecânico), o Atestado de Saúde Ocupacional encontra-se retido/condicionado até a avaliação do médico especialista. Solicito investigação com exames de imagem pertinentes e emissão de parecer sobre a capacidade funcional atual para o trabalho.`;
+            }
+
+            document.getElementById('doc-text').innerHTML = texto;
+        }
+
+        // Inicialização
+        changeType();
+    </script>
+</body>
+</html>
