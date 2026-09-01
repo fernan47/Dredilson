@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvia Saúde Domiciliar | Dr. Luiz Felipe Scandelai Coronado - Londrina PR</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0d3831;
+            --primary-light: #164e45;
+            --gold: #c5a059;
+            --gold-light: #dfc285;
+            --bg-cream: #f9f7f2;
+            --bg-white: #ffffff;
+            --text-main: #2b3a35;
+            --text-muted: #62726c;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+        }
+
+        /* Top Bar Informativa */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar i {
+            color: var(--gold);
+            margin-right: 6px;
+        }
+
+        /* Navbar Moderna */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 15px rgba(13, 56, 49, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .btn-whatsapp-nav {
+            background-color: var(--primary-dark);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp-nav:hover {
+            background-color: var(--gold);
+            color: var(--primary-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-cream) 0%, #f0ece1 100%);
+            padding: 80px 5% 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .doctor-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(197, 160, 89, 0.15);
+            border-left: 4px solid var(--gold);
+            padding: 10px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(13, 56, 49, 0.15);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* Vantagens / Diferenciais */
+        .benefits-section {
+            padding: 100px 5%;
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--bg-cream);
+            padding: 35px;
+            border-radius: 16px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(13, 56, 49, 0.06);
+            border-color: var(--gold);
+        }
+
+        .benefit-icon {
+            font-size: 2.2rem;
+            color: var(--gold);
+            background: rgba(13, 56, 49, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        .benefit-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Sobre / O Médico */
+        .about-section {
+            padding: 100px 5%;
+            background-color: var(--bg-cream);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .credentials-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .credentials-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .credentials-list i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        /* Serviços Section */
+        .services-section {
+            padding: 100px 5%;
+            background-color: var(--bg-white);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-cream);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(13, 56, 49, 0.04);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-bottom-color: var(--gold);
+            background-color: var(--bg-white);
+            box-shadow: 0 20px 40px rgba(13, 56, 49, 0.08);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(13, 56, 49, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary-dark);
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            white-space: nowrap;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contato & Formulário */
+        .contact-section {
+            padding: 100px 5%;
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #cbd5d1;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.05rem;
+        }
+
+        .contact-details i {
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        .contact-form-box {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 16px;
+            color: var(--text-main);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-form-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-form-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5d1;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg-cream);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(13, 56, 49, 0.15);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #071e1a;
+            color: #a3b2ac;
+            padding: 40px 5%;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            color: #a3b2ac;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsivo para Dispositivos Móveis */
+        @media(max-width: 968px) {
+            .hero-container, .about-container, .contact-container, .benefits-grid, .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            nav ul {
+                display: none;
+            }
+            .benefit-info h4, .service-card h3 {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body id="inicio">
+
+    <!-- Top Bar com dados técnicos e localização -->
+    <div class="top-bar">
+        <div><i class="fa-solid fa-location-dot"></i> Atendimento Médico Domiciliar em Londrina - PR e Região</div>
+        <div><i class="fa-solid fa-stethoscope"></i> CRM-PR 64965 | Pós-Graduação Geriatria Albert Einstein - SP</div>
+    </div>
+
+    <!-- Header / Navbar com a Logo inserida -->
+    <header>
+        <div class="nav-container">
+            <a href="#inicio" class="logo-area">
+                <img src="WhatsApp Image 2026-08-31 at 13.07.43.jpeg" alt="Alvia Saúde Domiciliar Logo">
+                <div class="logo-text">
+                    <span class="logo-title">Alvia</span>
+                    <span class="logo-subtitle">Saúde Domiciliar</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#vantagens">Vantagens</a></li>
+                    <li><a href="#sobre">O Médico</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/5543999999999?text=Olá%20Dr.%20Luiz%20Felipe%20Scandelai%20Coronado,%20gostaria%20de%20agendar%20um%20atendimento%20domiciliar%20pela%20Alvia." target="_blank" class="btn-whatsapp-nav">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="doctor-badge">
+                    <i class="fa-solid fa-award" style="margin-right: 8px; color: var(--gold);"></i> Dr. Luiz Felipe Scandelai Coronado • CRM-PR 64965
+                </div>
+                <h1>Atendimento Médico <span>Humanizado</span> no Conforto do Seu Lar</h1>
+                <p>Cuidado especializado com a excelência do Hospital Albert Einstein — SP, dedicado ao bem-estar, segurança e qualidade de vida de quem você mais ama em Londrina.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5543999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20domiciliar." target="_blank" class="btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i> Agendar Atendimento
+                    </a>
+                    <a href="#sobre" class="btn-secondary">
+                        Conhecer o Médico <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="Luiz Felipe Scandelai Coronado CONV-MEDCESU-261-68115.jpg" alt="Dr. Luiz Felipe Scandelai Coronado - Alvia Saúde Domiciliar" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens / Diferenciais -->
+    <section id="vantagens" class="benefits-section">
+        <div class="section-header">
+            <span class="section-tag">Por Que Escolher a Alvia?</span>
+            <h2>Vantagens do Atendimento Médico Domiciliar</h2>
+            <p>Descubra como o acompanhamento médico exclusivo em casa traz tranquilidade e preserva a saúde de toda a família.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <div class="benefit-info">
+                    <h4>Segurança e Comodidade</h4>
+                    <p>O paciente é atendido em seu próprio lar, evitando o estresse de trânsito, salas de espera lotadas e riscos de infecções hospitalares.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="benefit-info">
+                    <h4>Atendimento Sem Pressa</h4>
+                    <p>Consultas individualizadas e detalhadas, com foco na escuta ativa, anamnese completa e atenção minuciosa ao histórico clínico.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-house-chimney-medical"></i></div>
+                <div class="benefit-info">
+                    <h4>Visão Holística do Ambiente</h4>
+                    <p>Avaliação das condições do domicílio para identificar riscos de quedas, adaptar o espaço e orientar diretamente os familiares.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="benefit-info">
+                    <h4>Padrão Einstein de Qualidade</h4>
+                    <p>Rigor técnico e científico respaldado pela Pós-Graduação em Geriatria pelo Hospital Israelita Albert Einstein (SP).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about-section">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Atendimento humanizado em geriatria">
+            </div>
+            <div class="about-content">
+                <span class="section-tag">Excelência e Empatia</span>
+                <h2>Conheça o Dr. Luiz Felipe Scandelai Coronado</h2>
+                <p>A <strong>Alvia Saúde Domiciliar</strong> nasceu com o propósito de redefinir o cuidado médico, unindo excelência técnica e profundo respeito humanitário. O <strong>Dr. Luiz Felipe Scandelai Coronado (CRM-PR 64965)</strong> conduz cada atendimento com dedicação integral ao paciente.</p>
+                <p>Especializando-se em Geriatria pelo renomado <strong>Hospital Israelita Albert Einstein (São Paulo)</strong>, o Dr. Luiz Felipe traz para Londrina as melhores práticas no manejo da saúde da terceira idade e pacientes que necessitam de suporte clínico domiciliar.</p>
+                <ul class="credentials-list">
+                    <li><i class="fa-solid fa-circle-check"></i> CRM-PR 64965 com atuação regular e ética exemplar.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Pós-Graduando em Geriatria pelo Albert Einstein - SP.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Foco em prevenção, qualidade de vida e suporte contínuo aos familiares.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services-section">
+        <div class="section-header">
+            <span class="section-tag">Nossos Serviços</span>
+            <h2>Soluções Especializadas em Saúde</h2>
+            <p>Serviços planejados para garantir o máximo de suporte médico e conforto onde você estiver em Londrina.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Consulta Geriátrica Domiciliar</h3>
+                <p>Avaliação clínica especializada focada na prevenção e no tratamento de condições da longevidade com empatia e respeito.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                <h3>Acompanhamento Clínico Contínuo</h3>
+                <p>Monitoramento regular do estado de saúde, ajuste de medicações e prevenção de hospitalizações desnecessárias.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                <h3>Suporte e Orientação Familiar</h3>
+                <p>Orientações claras e suporte contínuo para familiares e cuidadores lidarem com a rotina de cuidados do paciente.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-pills"></i></div>
+                <h3>Gestão de Polifarmácia e Quedas</h3>
+                <p>Revisão minuciosa dos medicamentos em uso para evitar interações medicamentosas e estratégias de segurança no lar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <span class="section-tag" style="color: var(--gold);">Fale Conosco</span>
+                <h2>Solicite uma Avaliação Domiciliar</h2>
+                <p>Entre em contato diretamente para tirar dúvidas ou agendar o atendimento do Dr. Luiz Felipe Scandelai Coronado em Londrina e região.</p>
+                <ul class="contact-details">
+                    <li><i class="fa-solid fa-user-doctor"></i> Dr. Luiz Felipe Scandelai Coronado (CRM-PR 64965)</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> Pós-Graduação Geriatria Albert Einstein - SP</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Atendimento Domiciliar em Londrina - PR</li>
+                    <li><i class="fa-solid fa-phone"></i> (43) 99999-9999</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/5543999999999" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-box">
+                <h3>Envie sua Mensagem</h3>
+                <p>Preencha os campos abaixo e entraremos em contato rapidamente.</p>
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');">
+                    <div class="form-group">
+                        <label>Nome Completo *</label>
+                        <input type="text" class="form-control" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" class="form-control" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp *</label>
+                        <input type="tel" class="form-control" required placeholder="(43) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem *</label>
+                        <textarea class="form-control" required placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Alvia Saúde Domiciliar — Dr. Luiz Felipe Scandelai Coronado (CRM-PR 64965). Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5543999999999?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20o%20atendimento%20domiciliar." target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
